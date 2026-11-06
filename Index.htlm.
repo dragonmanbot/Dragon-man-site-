@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dragon Man</title>
+  <title>Dragon Man</title><style>
+  body {
+    margin: 0;
+    padding: 48px 24px;
+    background: #0b1018;
+    color: #e5e7eb;
+    font-family: Arial, sans-serif;
+  }
+
+  h1 {
+    color: #a9b9cf;
+    font-size: 42px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+</style>
 </head>
 <body>
   <h1>Dragon Man</h1>
