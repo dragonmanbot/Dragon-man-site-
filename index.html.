@@ -3,31 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dragon Man</title><style>
-  body {
-    margin: 0;
-    padding: 48px 24px;
-    background: #0b1018;
-    color: #e5e7eb;
-    font-family: Arial, sans-serif;
-  }
+  <meta name="theme-color" content="#0b1018">
+  <meta name="description" content="Conheça o Dragon Man, um bot para Discord com jogos, investigações e a história de Phoenix Windsor.">
+  <title>Dragon Man</title>
 
-  h1 {
-    color: #a9b9cf;
-    font-size: 42px;
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-  }
-</style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #0b1018;
+      color: #e5e7eb;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(100% - 40px, 1000px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid #263244;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: #a9b9cf;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #c4cede;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    main {
+      padding: 70px 0;
+    }
+
+    .hero {
+      padding: 40px 0 70px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      color: #a9b9cf;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.1;
+    }
+
+    h2 {
+      color: #a9b9cf;
+    }
+
+    p {
+      color: #c4cede;
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #5865f2;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #4752c4;
+    }
+
+    section {
+      padding: 24px 0 44px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid #263244;
+      border-radius: 12px;
+      background: #111a28;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #a9b9cf;
+    }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid #263244;
+      color: #9aa8bd;
+      text-align: center;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Dragon Man</h1>
-  <p>
-  Conheça o Dragon Man: um bot para Discord com jogos,
-  investigações e a história de Phoenix Windsor.
-</p>
+  <header>
+    <div class="container">
+      <nav aria-label="Navegação principal">
+        <a class="logo" href="#">Dragon Man</a>
+        <div class="nav-links">
+          <a href="#sobre">Sobre</a>
+          <a href="#recursos">Recursos</a>
+          <a href="#discord">Discord</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="sobre">
+      <h1>Conheça o Dragon Man</h1>
+      <p>
+        Um bot para Discord com jogos, investigações e a história de Phoenix Windsor.
+        Entre na comunidade e descubra o que está por trás dessa aventura.
+      </p>
+      <a class="button" href="#discord">Conhecer a comunidade</a>
+    </section>
+
+    <section id="recursos">
+      <h2>O que você vai encontrar</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Jogos</h3>
+          <p>Atividades para se divertir e interagir com a comunidade.</p>
+        </article>
+
+        <article class="card">
+          <h3>Investigações</h3>
+          <p>Enigmas e mistérios para explorar junto com outros membros.</p>
+        </article>
+
+        <article class="card">
+          <h3>Phoenix Windsor</h3>
+          <p>Conheça a história e o universo por trás do Dragon Man.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="discord">
+      <h2>Entre no Discord</h2>
+      <p>Use o botão abaixo para acessar o servidor da comunidade.</p>
+      <a
+        class="button"
+        href="https://discord.gg/SEU-CONVITE"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Acessar o servidor
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Dragon Man</div>
+  </footer>
 </body>
 </html>
