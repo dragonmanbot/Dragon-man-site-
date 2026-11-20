@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#17110d">
-  <meta name="description" content="Conheça o Dragon Man, um bot para Discord com jogos, investigações e a história de Phoenix Windsor.">
-  <title>Dragon Man | Crônicas de Phoenix Windsor</title>
+  <meta name="description" content="Lore Medieval de Dragon Man: acompanhe Phoenix Warwick, nascido em Villa Deorum no século IX.">
+  <meta property="og:title" content="Dragon Man | Crônicas de Villa Deorum">
+  <meta property="og:description" content="Conheça Phoenix Warwick e a tragédia que marcou sua infância em Villa Deorum, no século IX.">
+  <meta property="og:type" content="website">
+  <title>Dragon Man | Crônicas de Villa Deorum</title>
   <style>
     :root {
       color-scheme: dark;
@@ -17,86 +20,53 @@
       --parchment: #e8dcc2;
       --muted: #c0b29a;
       --wine: #762f2b;
-      --wine-hover: #914039;
-      --border: rgba(201, 164, 92, 0.32);
+      --border: rgba(201, 164, 92, .32);
     }
-
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
     body {
       margin: 0;
       color: var(--parchment);
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(118, 47, 43, 0.22), transparent 55%),
-        var(--night);
+      background: radial-gradient(ellipse at 50% 0, rgba(118,47,43,.2), transparent 55%), var(--night);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.0625rem;
-      line-height: 1.7;
+      line-height: 1.75;
     }
-
-    .container { width: min(1200px, calc(100% - clamp(24px, 5vw, 48px))); margin: 0 auto; }
-    header { padding: 22px 0; border-bottom: 1px solid var(--border); background: rgba(23, 17, 13, 0.82); }
-    nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .logo { color: var(--gold-light); font-size: 1.4rem; font-weight: bold; letter-spacing: 0.06em; text-decoration: none; }
-    .nav-links { display: flex; gap: 22px; }
+    a { color: var(--gold-light); }
+    a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+    .container { width: min(100% - 36px, 980px); margin: 0 auto; }
+    header { border-bottom: 1px solid var(--border); background: rgba(23,17,13,.96); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { color: var(--gold-light); font-size: 1.25rem; font-weight: bold; text-decoration: none; letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--gold-light); }
-
-    main { padding: 54px 0 70px; }
-    .hero {
-      position: relative;
-      padding: clamp(54px, 9vw, 110px) 30px;
-      text-align: center;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: linear-gradient(145deg, rgba(43, 32, 24, 0.96), rgba(31, 22, 17, 0.96));
-      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
-    }
-    .eyebrow { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; }
-    h1 { margin: 10px 0 16px; color: var(--gold-light); font-size: clamp(2.75rem, 8vw, 6rem); line-height: 1.08; }
-    h2 { color: var(--gold-light); font-size: clamp(1.85rem, 5vw, 2.65rem); }
-    p { color: var(--muted); font-size: clamp(1.125rem, 1rem + 0.35vw, 1.25rem); }
-    .hero p { max-width: 720px; margin: 0 auto; }
-    .button {
-      display: inline-block;
-      margin-top: 24px;
-      padding: 12px 22px;
-      border: 1px solid var(--gold);
-      border-radius: 4px;
-      background: var(--wine);
-      color: #fff3d4;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-    .button:hover { background: var(--wine-hover); transform: translateY(-2px); }
-    section:not(.hero) { padding: clamp(38px, 5vw, 58px) 0 22px; }
-    .section-heading { text-align: center; margin-bottom: 22px; }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2vw, 24px); }
-    .lore-cards, .command-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .command-list { margin: 0; }
-    .command-list dt { color: var(--gold-light); font-weight: bold; overflow-wrap: anywhere; }
-    .command-list code { font-size: 1em; }
-    .command-list dt:not(:first-child) { margin-top: 12px; }
-    .command-list dd { margin: 0; color: var(--muted); }
-    .card {
-      padding: clamp(22px, 2.4vw, 30px);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      background: linear-gradient(150deg, var(--panel), #211812);
-    }
-    .card h3 { margin-top: 0; color: var(--gold); font-size: 1.45rem; }
-    .card p { margin-bottom: 0; }
-    .card details { margin-top: 12px; }
-    .card summary { color: var(--gold-light); cursor: pointer; }
-    #discord { text-align: center; padding: 38px 20px !important; border: 1px solid var(--border); background: rgba(43, 32, 24, 0.58); }
-    footer { padding: 24px 0; border-top: 1px solid var(--border); color: #9c8c72; text-align: center; font-size: 0.95rem; }
-
+    main { padding: 46px 0 70px; }
+    .hero { padding: clamp(32px, 7vw, 68px) 24px; text-align: center; border: 1px solid var(--border); border-radius: 6px; background: linear-gradient(145deg, rgba(43,32,24,.97), rgba(31,22,17,.97)); }
+    .eyebrow { color: var(--gold); font-size: .82rem; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { margin: 10px 0 12px; color: var(--gold-light); font-size: clamp(2.2rem, 7vw, 4.2rem); line-height: 1.12; }
+    h2 { color: var(--gold-light); font-size: clamp(1.7rem, 4vw, 2.25rem); line-height: 1.25; }
+    h3 { color: var(--gold); }
+    p, li { color: var(--muted); }
+    .hero p { max-width: 700px; margin: 0 auto; font-size: 1.12rem; }
+    .button { display: inline-block; margin-top: 22px; padding: 10px 20px; border: 1px solid var(--gold); border-radius: 4px; background: var(--wine); color: #fff3d4; font-weight: bold; text-decoration: none; }
+    .button:hover { background: #914039; }
+    section { padding: 28px 0; }
+    .section-title { margin-bottom: 8px; }
+    .panel { padding: clamp(20px, 4vw, 32px); border: 1px solid var(--border); border-radius: 5px; background: linear-gradient(150deg, var(--panel), #211812); }
+    .identity-grid, .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .fact { padding: 16px; border: 1px solid rgba(201,164,92,.2); background: rgba(0,0,0,.12); }
+    .fact strong { display: block; color: var(--gold-light); }
+    .timeline { padding-left: 22px; }
+    .timeline li { margin: 0 0 12px; padding-left: 4px; }
+    .chapter p { color: var(--parchment); }
+    .note { padding: 14px 18px; border-left: 3px solid var(--gold); background: rgba(201,164,92,.08); }
+    footer { padding: 24px 0; border-top: 1px solid var(--border); color: #9c8c72; text-align: center; }
     @media (max-width: 650px) {
-      nav { align-items: flex-start; flex-direction: column; }
-      .nav-links { gap: 16px; flex-wrap: wrap; }
-      .cards { grid-template-columns: 1fr; }
-      .hero { padding-inline: 20px; }
+      nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
+      .nav-links { gap: 10px 16px; }
+      .identity-grid, .cards { grid-template-columns: 1fr; }
+      main { padding-top: 24px; }
+      .container { width: min(100% - 28px, 980px); }
     }
   </style>
 </head>
@@ -104,141 +74,96 @@
   <header>
     <div class="container">
       <nav aria-label="Navegação principal">
-        <a class="logo" href="#inicio">⚔ Dragon Man</a>
+        <a class="logo" href="#inicio">Dragon Man</a>
         <div class="nav-links">
-          <a href="#sobre">Sobre</a>
-          <a href="#recursos">Recursos</a>
-          <a href="#comandos">Comandos</a>
-          <a href="#universo">Universo</a>
-          <a href="#discord">Discord</a>
+          <a href="#lore-medieval">Lore Medieval</a>
+          <a href="#capitulo-1">Capítulo I</a>
+          <a href="#cronologia">Cronologia</a>
+          <a href="#personagens">Personagens</a>
+          <a href="#pendencias">Em desenvolvimento</a>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="container" id="inicio">
-    <section class="hero" id="sobre">
-      <div class="eyebrow">Uma aventura aguarda</div>
-      <h1>Conheça o Dragon Man</h1>
-      <p>Um bot para Discord com jogos, investigações e a história de Phoenix Windsor. Entre na comunidade e descubra os segredos desta jornada.</p>
-      <a class="button" href="#discord">Conhecer a comunidade</a>
+    <section class="hero" id="lore-medieval">
+      <div class="eyebrow">Lore Medieval · século IX</div>
+      <h1>Crônicas de Villa Deorum</h1>
+      <p>Phoenix Warwick nasceu em Villa Deorum, no norte da Inglaterra. A infância marcada pela violência de Morvran e pela perda de Edith dá início à sua história.</p>
+      <a class="button" href="#capitulo-1">Ler o Capítulo I</a>
     </section>
 
-    <section id="recursos">
-      <div class="section-heading">
-        <div class="eyebrow">Crônicas e desafios</div>
-        <h2>O que você vai encontrar</h2>
+    <section id="universo">
+      <div class="panel">
+        <div class="eyebrow">O universo</div>
+        <h2 class="section-title">Villa Deorum</h2>
+        <p>Villa Deorum é um povoado situado no norte da Inglaterra, no século IX. No futuro, o lugar será conhecido como Blackville. A história acompanha Phoenix Warwick e os acontecimentos de sua infância; não há, nesta apresentação, imagens ou lendas não confirmadas.</p>
       </div>
+    </section>
+
+    <section id="ficha">
+      <div class="eyebrow">Protagonista</div>
+      <h2>Ficha de Phoenix Warwick</h2>
+      <div class="identity-grid">
+        <div class="fact"><strong>Nome</strong>Phoenix Warwick</div>
+        <div class="fact"><strong>Nascimento</strong>4 de setembro de 846 d.C.</div>
+        <div class="fact"><strong>Local de nascimento</strong>Villa Deorum, norte da Inglaterra</div>
+        <div class="fact"><strong>Pais</strong>Edith Warwick e Morvran Hohenzollern</div>
+        <div class="fact"><strong>Personalidade estabelecida</strong>Traumatizado, orgulhoso, gentil, sombrio, vingativo e frio.</div>
+        <div class="fact"><strong>Versão</strong>Medieval — século IX</div>
+      </div>
+    </section>
+
+    <section id="capitulo-1">
+      <div class="eyebrow">Lore Medieval</div>
+      <h2>Capítulo I — A tragédia de Villa Deorum</h2>
+      <article class="panel chapter">
+        <p>Phoenix Warwick nasceu em 4 de setembro de 846 d.C., em Villa Deorum, povoado do norte da Inglaterra. Era filho de Edith Warwick e Morvran Hohenzollern.</p>
+        <p>Em 17 de abril de 853, durante uma briga corporal, Morvran sofreu uma pancada na cabeça. Depois desse incidente, sua personalidade sofreu uma transformação profunda.</p>
+        <p>Mais tarde, Morvran assassinou Edith e lançou o próprio filho em um rio. Phoenix sobreviveu e foi acolhido por um casal de idosos.</p>
+        <p>Essa tragédia constitui a base conhecida do primeiro capítulo. Os acontecimentos posteriores ainda não foram estabelecidos nesta versão da lore.</p>
+      </article>
+    </section>
+
+    <section id="cronologia">
+      <div class="eyebrow">Fatos confirmados</div>
+      <h2>Cronologia</h2>
+      <div class="panel">
+        <ol class="timeline">
+          <li><strong>4 de setembro de 846 d.C.:</strong> nasce Phoenix Warwick, em Villa Deorum.</li>
+          <li><strong>17 de abril de 853:</strong> Morvran sofre uma pancada na cabeça durante uma briga corporal; depois, sua personalidade muda profundamente.</li>
+          <li><strong>Data não especificada:</strong> Morvran assassina Edith e lança Phoenix ao rio. Phoenix sobrevive e é acolhido por um casal de idosos.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="personagens">
+      <div class="eyebrow">Pessoas estabelecidas</div>
+      <h2>Personagens</h2>
       <div class="cards">
-        <article class="card">
-          <h3>Jogos</h3>
-          <p>Atividades para se divertir e interagir com os demais aventureiros da comunidade.</p>
-        </article>
-        <article class="card">
-          <h3>Investigações</h3>
-          <p>Enigmas e mistérios para explorar, reunir pistas e desvendar em grupo.</p>
-        </article>
-        <article class="card">
-          <h3>Phoenix Windsor</h3>
-          <p>Descubra a história e o universo por trás das crônicas de Dragon Man.</p>
-        </article>
+        <article class="panel"><h3>Phoenix Warwick</h3><p>Protagonista da versão medieval. Sua personalidade estabelecida é traumatizada, orgulhosa, gentil, sombria, vingativa e fria.</p></article>
+        <article class="panel"><h3>Edith Warwick</h3><p>Mãe de Phoenix. Foi assassinada por Morvran.</p></article>
+        <article class="panel"><h3>Morvran Hohenzollern</h3><p>Pai de Phoenix. Após sofrer uma pancada na cabeça em 17 de abril de 853, passou por uma transformação profunda de personalidade.</p></article>
+        <article class="panel"><h3>Casal de idosos</h3><p>Acolheu Phoenix após sua sobrevivência ao rio. Seus nomes não foram estabelecidos.</p></article>
       </div>
     </section>
 
-    <section id="comandos" aria-labelledby="comandos-titulo">
-      <div class="section-heading">
-        <div class="eyebrow">No Discord</div>
-        <h2 id="comandos-titulo">Comandos</h2>
+    <section id="pendencias">
+      <div class="eyebrow">Informações ainda não desenvolvidas</div>
+      <h2>O que permanece em aberto</h2>
+      <div class="panel">
+        <p class="note">Para manter a lore fiel ao que foi confirmado, não são acrescentados nomes, diálogos, explicações sobrenaturais ou novos acontecimentos.</p>
+        <ul>
+          <li>A data exata do assassinato de Edith e do episódio no rio.</li>
+          <li>Os nomes e a história do casal de idosos.</li>
+          <li>Os acontecimentos posteriores ao acolhimento de Phoenix.</li>
+          <li>Como e quando o povoado passou a ser conhecido como Blackville.</li>
+        </ul>
       </div>
-      <div class="cards command-cards">
-        <article class="card">
-          <h3>Recompensas e loja</h3>
-          <dl class="command-list">
-            <dt><code>/daily</code></dt>
-            <dd>Resgate a recompensa diária.</dd>
-            <dt><code>/presente</code></dt>
-            <dd>Resgate o presente diário do Dragon Man.</dd>
-            <dt><code>/escamas</code></dt>
-            <dd>Consulte seu saldo de Escamas.</dd>
-            <dt><code>/loja</code></dt>
-            <dd>Veja os itens da loja do bot.</dd>
-          </dl>
-        </article>
-        <article class="card">
-          <h3>Jogos e interações</h3>
-          <dl class="command-list">
-            <dt><code>/chat</code></dt>
-            <dd>Converse com o Dragon Man.</dd>
-            <dt><code>/charada</code></dt>
-            <dd>Tente resolver a charada do bot.</dd>
-            <dt><code>/penaltis</code></dt>
-            <dd>Jogue uma partida de pênaltis.</dd>
-            <dt><code>/basketball</code></dt>
-            <dd>Dispute um x1 de basquete.</dd>
-            <dt><code>/investigar</code></dt>
-            <dd>Abra um caso de investigação e explore as pistas no Discord.</dd>
-          </dl>
-        </article>
-        <article class="card">
-          <h3>Perfil e universo</h3>
-          <dl class="command-list">
-            <dt><code>/perfil medieval</code></dt>
-            <dd>Veja a ficha medieval.</dd>
-            <dt><code>/perfil editar</code></dt>
-            <dd>Personalize seu perfil no bot.</dd>
-            <dt><code>/rank</code></dt>
-            <dd>Consulte o ranking do servidor.</dd>
-            <dt><code>/lore</code></dt>
-            <dd>Leia a história de Phoenix Windsor e Blackville.</dd>
-          </dl>
-        </article>
-        <article class="card">
-          <h3>Sorteios e suporte</h3>
-          <dl class="command-list">
-            <dt><code>/sorteio criar</code></dt>
-            <dd>Escolha o prêmio, o prazo e a quantidade de vencedores.</dd>
-            <dt><code>/sorteio editar</code></dt>
-            <dd>Ajuste um sorteio já publicado no servidor.</dd>
-            <dt><code>/painel suporte criar</code></dt>
-            <dd>Crie um painel de suporte no servidor.</dd>
-            <dt><code>/painel suporte editar</code></dt>
-            <dd>Edite um painel de suporte existente.</dd>
-          </dl>
-        </article>
-      </div>
-    </section>
-
-    <section id="universo" aria-labelledby="universo-titulo">
-      <div class="section-heading">
-        <div class="eyebrow">Crônicas de Phoenix Windsor</div>
-        <h2 id="universo-titulo">O universo do Dragon Man</h2>
-      </div>
-      <div class="cards lore-cards">
-        <article class="card">
-          <h3>Phoenix Windsor</h3>
-          <p>Phoenix nasceu em <time datetime="1974-09-04">4 de setembro de 1974</time>, em Blackville. É chefe militar e conhecido como Dragon Man.</p>
-          <details>
-            <summary>Ler a origem de Phoenix</summary>
-            <p>Aos sete anos, Phoenix perdeu a mãe, Lydia Windsor. Seu pai, Malcom, a assassinou, jogou Phoenix no rio e fugiu para Moscou, na então União Soviética. Phoenix sobreviveu sozinho por dois dias e foi adotado por um casal de idosos de classe média alta.</p>
-          </details>
-        </article>
-        <article class="card">
-          <h3>Blackville</h3>
-          <p>Fundada em 324 a.C. com o nome de Villa Deorum, Blackville fica no norte da Inglaterra e tem cerca de 100 mil habitantes. Construções romanas e medievais dividem as ruas com igrejas góticas e postes do século XVIII.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="discord">
-      <div class="eyebrow">Reúna seu grupo</div>
-      <h2>Entre na comunidade</h2>
-      <p>Junte-se ao servidor e faça parte desta aventura.</p>
-      <a class="button" href="https://discord.gg/Q4U7FKwVW" target="_blank" rel="noopener noreferrer">Acessar o servidor</a>
     </section>
   </main>
 
-  <footer>
-    <div class="container">© 2026 Dragon Man · Que sua jornada comece.</div>
-  </footer>
+  <footer><div class="container">© 2026 Dragon Man · Lore Medieval</div></footer>
 </body>
 </html>
