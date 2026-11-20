@@ -20,6 +20,7 @@
       --parchment: #e8dcc2;
       --muted: #c0b29a;
       --wine: #762f2b;
+      --wine-hover: #914039;
       --border: rgba(201, 164, 92, .32);
     }
     * { box-sizing: border-box; }
@@ -37,7 +38,7 @@
     header { border-bottom: 1px solid var(--border); background: rgba(23,17,13,.96); }
     nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .logo { color: var(--gold-light); font-size: 1.25rem; font-weight: bold; text-decoration: none; letter-spacing: .04em; }
-    .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .nav-links { display: flex; gap: 16px; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); text-decoration: none; }
     .nav-links a:hover { color: var(--gold-light); }
     main { padding: 46px 0 70px; }
@@ -49,7 +50,7 @@
     p, li { color: var(--muted); }
     .hero p { max-width: 700px; margin: 0 auto; font-size: 1.12rem; }
     .button { display: inline-block; margin-top: 22px; padding: 10px 20px; border: 1px solid var(--gold); border-radius: 4px; background: var(--wine); color: #fff3d4; font-weight: bold; text-decoration: none; }
-    .button:hover { background: #914039; }
+    .button:hover { background: var(--wine-hover); }
     section { padding: 28px 0; }
     .section-title { margin-bottom: 8px; }
     .panel { padding: clamp(20px, 4vw, 32px); border: 1px solid var(--border); border-radius: 5px; background: linear-gradient(150deg, var(--panel), #211812); }
@@ -60,6 +61,12 @@
     .timeline li { margin: 0 0 12px; padding-left: 4px; }
     .chapter p { color: var(--parchment); }
     .note { padding: 14px 18px; border-left: 3px solid var(--gold); background: rgba(201,164,92,.08); }
+    .command-list { margin: 0; }
+    .command-list dt { color: var(--gold-light); font-weight: bold; overflow-wrap: anywhere; }
+    .command-list code { font-size: 1em; }
+    .command-list dt:not(:first-child) { margin-top: 12px; }
+    .command-list dd { margin: 0; color: var(--muted); }
+    .status { display: inline-block; margin-top: 8px; color: #d7c69b; font-size: .88rem; }
     footer { padding: 24px 0; border-top: 1px solid var(--border); color: #9c8c72; text-align: center; }
     @media (max-width: 650px) {
       nav { align-items: flex-start; flex-direction: column; padding: 16px 0; }
@@ -77,10 +84,10 @@
         <a class="logo" href="#inicio">Dragon Man</a>
         <div class="nav-links">
           <a href="#lore-medieval">Lore Medieval</a>
-          <a href="#capitulo-1">Capítulo I</a>
-          <a href="#cronologia">Cronologia</a>
-          <a href="#personagens">Personagens</a>
-          <a href="#pendencias">Em desenvolvimento</a>
+          <a href="#comandos">Comandos</a>
+          <a href="#imagens">Imagens</a>
+          <a href="#ajustes">Ajustes</a>
+          <a href="#historico">Histórico</a>
         </div>
       </nav>
     </div>
@@ -98,7 +105,7 @@
       <div class="panel">
         <div class="eyebrow">O universo</div>
         <h2 class="section-title">Villa Deorum</h2>
-        <p>Villa Deorum é um povoado situado no norte da Inglaterra, no século IX. No futuro, o lugar será conhecido como Blackville. A história acompanha Phoenix Warwick e os acontecimentos de sua infância; não há, nesta apresentação, imagens ou lendas não confirmadas.</p>
+        <p>Villa Deorum é um povoado situado no norte da Inglaterra, no século IX. No futuro, o lugar será conhecido como Blackville. A história acompanha Phoenix Warwick e os acontecimentos confirmados de sua infância.</p>
       </div>
     </section>
 
@@ -149,6 +156,57 @@
       </div>
     </section>
 
+    <section id="comandos" aria-labelledby="comandos-titulo">
+      <div class="eyebrow">No Discord</div>
+      <h2 id="comandos-titulo">Comandos</h2>
+      <p class="note">Os comandos abaixo foram recuperados da seção publicada em versões anteriores deste site. Como o repositório atual não contém o código-fonte do bot, esta página mantém a documentação existente sem afirmar uma verificação de execução adicional.</p>
+      <div class="cards">
+        <article class="panel"><h3>Recompensas e loja</h3><dl class="command-list">
+          <dt><code>/daily</code></dt><dd>Resgate a recompensa diária. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/presente</code></dt><dd>Resgate o presente diário do Dragon Man. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/escamas</code></dt><dd>Consulte seu saldo de Escamas. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/loja</code></dt><dd>Veja os itens da loja do bot. <span class="status">Documentado no site anterior.</span></dd>
+        </dl></article>
+        <article class="panel"><h3>Jogos e interações</h3><dl class="command-list">
+          <dt><code>/chat</code></dt><dd>Converse com o Dragon Man. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/charada</code></dt><dd>Tente resolver a charada do bot. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/penaltis</code></dt><dd>Jogue uma partida de pênaltis. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/basketball</code></dt><dd>Dispute um x1 de basquete. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/investigar</code></dt><dd>Abra um caso de investigação e explore as pistas no Discord. <span class="status">Documentado no site anterior.</span></dd>
+        </dl></article>
+        <article class="panel"><h3>Perfil e universo</h3><dl class="command-list">
+          <dt><code>/perfil medieval</code></dt><dd>Veja a ficha medieval. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/perfil editar</code></dt><dd>Personalize seu perfil no bot. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/rank</code></dt><dd>Consulte o ranking do servidor. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/lore</code></dt><dd>Leia a lore publicada do Dragon Man. <span class="status">Atualizado para a lore medieval.</span></dd>
+        </dl></article>
+        <article class="panel"><h3>Sorteios e suporte</h3><dl class="command-list">
+          <dt><code>/sorteio criar</code></dt><dd>Escolha o prêmio, o prazo e a quantidade de vencedores. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/sorteio editar</code></dt><dd>Ajuste um sorteio já publicado no servidor. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/painel suporte criar</code></dt><dd>Crie um painel de suporte no servidor. <span class="status">Documentado no site anterior.</span></dd>
+          <dt><code>/painel suporte editar</code></dt><dd>Edite um painel de suporte existente. <span class="status">Documentado no site anterior.</span></dd>
+        </dl></article>
+      </div>
+    </section>
+
+    <section id="imagens">
+      <div class="eyebrow">Acervo visual</div>
+      <h2>Imagens</h2>
+      <div class="panel"><p>O repositório atual não possui arquivos de imagem. Nenhuma imagem ligada à lore antiga foi reutilizada.</p></div>
+    </section>
+
+    <section id="ajustes">
+      <div class="eyebrow">Configuração</div>
+      <h2>Ajustes</h2>
+      <div class="panel"><p>O layout sombrio e medieval foi mantido. Os cartões tornam-se uma única coluna no celular, o menu permite quebra de linha e todos os títulos internos possuem links de navegação.</p></div>
+    </section>
+
+    <section id="historico">
+      <div class="eyebrow">Versões</div>
+      <h2>Histórico de Versões</h2>
+      <div class="panel"><ol class="timeline"><li><strong>Versão atual:</strong> Lore Medieval de Phoenix Warwick, com os comandos históricos restaurados e sem lore de Phoenix Windsor.</li><li><strong>Alteração anterior:</strong> Página criada para apresentar Phoenix Warwick e os fatos confirmados de sua história.</li></ol></div>
+    </section>
+
     <section id="pendencias">
       <div class="eyebrow">Informações ainda não desenvolvidas</div>
       <h2>O que permanece em aberto</h2>
@@ -162,8 +220,17 @@
         </ul>
       </div>
     </section>
+
+    <section id="discord">
+      <div class="eyebrow">Reúna seu grupo</div>
+      <h2>Entre na comunidade</h2>
+      <p>Junte-se ao servidor e faça parte desta aventura.</p>
+      <a class="button" href="https://discord.gg/Q4U7FKwVW" target="_blank" rel="noopener noreferrer">Acessar o servidor</a>
+    </section>
   </main>
 
-  <footer><div class="container">© 2026 Dragon Man · Lore Medieval</div></footer>
+  <footer>
+    <div class="container">© 2026 Dragon Man · Lore Medieval</div>
+  </footer>
 </body>
 </html>
